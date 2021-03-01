@@ -61,7 +61,7 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin {
           top: 0,
           bottom: 0,
           left: isSideBarOpenedAsync.data ? 0 : -screenWidth,
-          right: isSideBarOpenedAsync.data ? 0 : screenWidth - 45,
+          right: isSideBarOpenedAsync.data ? 0 : screenWidth - 35,
           child: Row(
             children: <Widget>[
               Expanded(
@@ -78,15 +78,8 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin {
                           "Simply Nature",
                           style: TextStyle(
                               color: Colors.white,
-                              fontSize: 30,
+                              fontSize: 20,
                               fontWeight: FontWeight.w800),
-                        ),
-                        subtitle: Text(
-                          "www.techieblossom.com",
-                          style: TextStyle(
-                            color: Color.fromRGBO(188, 111, 241, 1),
-                            fontSize: 16,
-                          ),
                         ),
                         leading: CircleAvatar(
                           child: Icon(

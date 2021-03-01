@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "oculus-1200a",
+  "private_key_id": "49b7fb68978bd16e2cfba71283305a5ac021ce37",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQDAqVAgXhlKKNOa\ndxXLH+/NhosFbRZ/L81ocRMEC1q3Box5lhFaoUe76id2LcZozw7dUxEe3NobQP7m\nEvkZ7rKcaDJNYrt5NF4nGAhvPZHSvdoTWNG6MUW6Wa4LEzfAVp4U9s5yClf261W+\n3zkp+H+BM9KL//i92pmtAk2ts/ppIw9abnZvojRzOFGPZ5exeVtJBShc1zaBvfZh\nRQrG2Ph7x4x/dReJv6bQmkbkUhg5k5cT+4hAT1HXTd3GaLIisiMN0jbYrDaDuJkw\nUOimCZngrgBJQDdEitKfBKoZ/sl+Wy8TstfOiih1VP+LnSVC6U/DQu0nva3blh0y\nRG3p65F/AgMBAAECggEAPUD3kTrptnrRgCBRhQHT59fZdnGu/+QOXiDpR1Vm058Y\n5YVRYiu512SEhF3cYbFHTBXfcR0NmTGqeTLaESUjk3fLWnBEI66DKtHIyLleFg83\neQQ5tgV5Ylyl6a6EALppS0gG7hocyowa+HMXRSFVRJpZ3BoXlyEbz/ZWBR6eRHOL\nMFkeDYECPjlE93pPXwibirucrONQJ66MtP5p1VjdWbiYdIYOYTOy2qKUfrpnSn5p\ncxfo4He2DPkGfRoXK4LTXHjsJRAJ4dxhC+Yq2gfNiyV9o07Lv90iyNS2QuzicAsu\n42dqveXul1B18GKyAlcadfPeWVQR7uaIAb2PeigisQKBgQD91eO4A4bEIREw0ROI\n7TP1p5tCy0mC4TNqScXn1QhKHfZCe/48Ef6ptL6mLrbsDhOk3nXXqZ+uGlDHEOwB\nkvUpZONi+ZtQeoZrOOn6CHzndeOQfmRSX4s5X3xOlpd/j61Vl20HoiTFAUJtqyMA\nzRk5Dcclb/fBndNmurhaR/MLzwKBgQDCTeIi5ZRUzaJsTNaDgVrcJP8KC8z5h3Tg\nOHV2mpM2D0K7H9U0JVsfqmVztrtIOG2u+SAVdyWBosTi4mwxNVSq48xmgz5L6Foa\nv1szr4W2HBkAxXEMDGhZLrs9RoL4nH7kjd5sb9aw+2XDI9cgCvvJaopK4deDapSy\nOZTME1obUQKBgQCcDrgmFeTxB/Nts9zyvgLH8Pe/pQPY92OI4TpPQeYKy0jvrxOr\nEtUiuQDNYsMLdcwV/L8ujBakD4HCIWE3xoX7oQ87doJKhEnH+gG/uyAvnYb++vXq\nvtr1twLRvjv+LPNAQAzEOKeqhw+0JRcsEuyC6zmYhrIn00R5UCqvNrTyeQKBgQCO\nFpA4vrQi86FEG0h/MDf2ZqOOgCSrkO/aC89yJQVj8fL1jgjGMk8Zr+yymr0HyiQD\nYTCiIdfunc3msHc34O0CbsUJbg4/SjGh/688860PCCsMklXh3qzsEq1f2NFr5l0w\n28H8gCh6kczPz8TALOgFWYC5079a3bTRRCRYvAoXkQKBgQCJlUPIOlzG1fFOiJEM\nV3lGiCLzpOahqIyrEV6fyLswsL9bJCB9UtYkS8DzFVOcdgioWvJJ6+cS1rNN3Bib\nuF3kFvi0pb4NSyBLvIAk3DonZoWx9KoCg/1Ns1QkiiBV0HNfgZh/fn3S4Ok8huF8\nBOj8CdSWW5fyq2yRzAzSHVSOhw==\n-----END PRIVATE KEY-----\n",
+  "client_email": "dialogflow-poetoh@oculus-1200a.iam.gserviceaccount.com",
+  "client_id": "112091556523252360301",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/dialogflow-poetoh%40oculus-1200a.iam.gserviceaccount.com"
+}

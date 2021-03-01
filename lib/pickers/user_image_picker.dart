@@ -38,7 +38,7 @@ class _UserImagePickerState extends State<UserImagePicker> {
     return Column(
       children: <Widget>[
         Padding(
-          padding: EdgeInsets.only(top: 15),
+          padding: EdgeInsets.only(top: 15, left: 20),
           child: Text(
             "Please Click the image for classification",
             style: TextStyle(
@@ -51,7 +51,7 @@ class _UserImagePickerState extends State<UserImagePicker> {
         Container(
           width: double.infinity,
           height: 300,
-          margin: EdgeInsets.only(top: 30, bottom: 10),
+          margin: EdgeInsets.only(top: 30, bottom: 10, left: 20),
           child: _pickedImage != null
               ? Image.file(
                   _pickedImage,

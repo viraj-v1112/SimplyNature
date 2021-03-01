@@ -27,7 +27,7 @@ class NavigationBloc extends Bloc<NavigationEvents, NavigationStates> {
         yield HomePage();
         break;
       case NavigationEvents.DIYPageClickedEvent:
-        yield DIYPage();
+        yield DIYList(type: 'paper');
         break;
       case NavigationEvents.ClassifyPageClickedEvent:
         yield ClassificationPage();
