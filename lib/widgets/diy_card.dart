@@ -4,6 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:lottie/lottie.dart';
 // import 'package:oculus/screens/EventDetailPage.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'dart:math';
 
 class DIYCard extends StatefulWidget with NavigationStates {
   final DocumentSnapshot d;
@@ -28,6 +29,14 @@ class DIYCard extends StatefulWidget with NavigationStates {
 
   @override
   _DIYCardState createState() => _DIYCardState();
+}
+
+Color colorFromNum(int num) {
+  var random = Random(num);
+  var r = random.nextInt(256);
+  var g = random.nextInt(256);
+  var b = random.nextInt(256);
+  return Color.fromARGB(255, r, g, b);
 }
 
 class _DIYCardState extends State<DIYCard> with TickerProviderStateMixin {
@@ -194,21 +203,21 @@ class _DIYCardState extends State<DIYCard> with TickerProviderStateMixin {
                       type: MaterialType.transparency,
                       child: InkWell(
                         borderRadius: BorderRadius.all(Radius.circular(20)),
-                        // onTap: () async {
-                        //   await Future.delayed(Duration(milliseconds: 200));
-                        //   Navigator.push(
-                        //     context,
-                        //     SlowMaterialPageRoute(
-                        //       builder: (context) {
-                        //         return new PageItem(
-                        //             event: widget.d,
-                        //             date: widget.date,
-                        //             num: widget.num);
-                        //       },
-                        //       fullscreenDialog: true,
-                        //     ),
-                        //   );
-                        // },
+                        //   onTap: () async {
+                        //     await Future.delayed(Duration(milliseconds: 200));
+                        //     Navigator.push(
+                        //       context,
+                        //       SlowMaterialPageRoute(
+                        //         builder: (context) {
+                        //           return new PageItem(
+                        //               event: widget.d,
+                        //               date: widget.date,
+                        //               num: widget.num);
+                        //         },
+                        //         fullscreenDialog: true,
+                        //       ),
+                        //     );
+                        //   },
                       ),
                     ),
                   ),
@@ -222,4 +231,38 @@ class _DIYCardState extends State<DIYCard> with TickerProviderStateMixin {
       },
     );
   }
+}
+
+class PageItem extends StatelessWidget {
+  final int num;
+
+  const PageItem({Key key, this.num}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Hero(
+      tag: "card$num",
+      child: Scaffold(
+        backgroundColor: colorFromNum(num),
+        appBar: AppBar(
+          backgroundColor: Colors.white.withOpacity(0.2),
+        ),
+      ),
+    );
+  }
+}
+
+class SlowMaterialPageRoute<T> extends MaterialPageRoute<T> {
+  SlowMaterialPageRoute({
+    WidgetBuilder builder,
+    RouteSettings settings,
+    bool maintainState = true,
+    bool fullscreenDialog = false,
+  }) : super(
+            builder: builder,
+            settings: settings,
+            fullscreenDialog: fullscreenDialog);
+
+  @override
+  Duration get transitionDuration => const Duration(seconds: 3);
 }

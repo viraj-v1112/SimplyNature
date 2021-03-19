@@ -13,6 +13,7 @@ class ClassificationPage extends StatefulWidget with NavigationStates {
 
 class _ClassificationPageState extends State<ClassificationPage> {
   File _pickedImage;
+  String result;
 
   void _selectImage(File pickedImage) {
     _pickedImage = pickedImage;
@@ -22,7 +23,7 @@ class _ClassificationPageState extends State<ClassificationPage> {
     ///MultiPart request
     var request = http.MultipartRequest(
       'POST',
-      Uri.parse("http://192.168.0.107:5000/predict"),
+      Uri.parse("http://192.168.0.109:5000/predict"),
     );
     Map<String, String> headers = {"Content-type": "multipart/form-data"};
     request.files.add(
@@ -39,7 +40,9 @@ class _ClassificationPageState extends State<ClassificationPage> {
     print("request: " + request.toString());
     var res = await request.send();
     // print("This is response:" + res.toString());
-    print(await res.stream.transform(utf8.decoder).join());
+    // print(await res.stream.transform(utf8.decoder).join());
+    result = await res.stream.transform(utf8.decoder).join();
+    setState(() {});
     return res.statusCode;
   }
 
@@ -71,6 +74,15 @@ class _ClassificationPageState extends State<ClassificationPage> {
             label: Text('Check Results'),
             textColor: Theme.of(context).primaryColor,
           ),
+          if (result != null)
+            Text(
+              'The obtained class is: $result',
+              style: TextStyle(
+                color: Colors.pinkAccent,
+                fontSize: 17,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
         ],
       ),
     );
