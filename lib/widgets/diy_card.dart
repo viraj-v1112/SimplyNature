@@ -48,9 +48,6 @@ class _DIYCardState extends State<DIYCard> with TickerProviderStateMixin {
   @override
   void initState() {
     // TODO: implement initState
-    // setState(() {
-    //   liked = widget.liked? widget.liked : false;
-    // });
     _controller = AnimationController(vsync: this);
     super.initState();
   }
@@ -203,21 +200,21 @@ class _DIYCardState extends State<DIYCard> with TickerProviderStateMixin {
                       type: MaterialType.transparency,
                       child: InkWell(
                         borderRadius: BorderRadius.all(Radius.circular(20)),
-                        //   onTap: () async {
-                        //     await Future.delayed(Duration(milliseconds: 200));
-                        //     Navigator.push(
-                        //       context,
-                        //       SlowMaterialPageRoute(
-                        //         builder: (context) {
-                        //           return new PageItem(
-                        //               event: widget.d,
-                        //               date: widget.date,
-                        //               num: widget.num);
-                        //         },
-                        //         fullscreenDialog: true,
-                        //       ),
-                        //     );
-                        //   },
+                        onTap: () async {
+                          await Future.delayed(Duration(milliseconds: 200));
+                          Navigator.push(
+                            context,
+                            SlowMaterialPageRoute(
+                              builder: (context) {
+                                return new PageItem(
+                                    event: widget.d,
+                                    date: widget.date,
+                                    num: widget.num);
+                              },
+                              fullscreenDialog: true,
+                            ),
+                          );
+                        },
                       ),
                     ),
                   ),

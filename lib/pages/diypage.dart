@@ -119,7 +119,6 @@ class _DIYListState extends State<DIYList>
         if (animationController.isCompleted) {
           animationController.reverse();
           setState(() {
-            print("Reverse");
             isFade = false;
           });
           return false;
@@ -136,12 +135,6 @@ class _DIYListState extends State<DIYList>
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Image.asset(
-                  'assets/images/OculusLogo.png',
-                  height: 40,
-                  width: 40,
-                  fit: BoxFit.contain,
-                ),
                 SizedBox(
                   width: 10,
                 ),
@@ -230,7 +223,6 @@ class _DIYListState extends State<DIYList>
                                 changeDIYList();
                                 animationController.reverse();
                                 setState(() {
-                                  print("Reverse");
                                   isFade = false;
                                 });
                               },
@@ -268,7 +260,6 @@ class _DIYListState extends State<DIYList>
                                 changeDIYList();
                                 animationController.reverse();
                                 setState(() {
-                                  print("Reverse");
                                   isFade = false;
                                 });
                               },
@@ -304,7 +295,6 @@ class _DIYListState extends State<DIYList>
                                 changeDIYList();
                                 animationController.reverse();
                                 setState(() {
-                                  print("Reverse");
                                   isFade = false;
                                 });
                               },
@@ -340,7 +330,6 @@ class _DIYListState extends State<DIYList>
                                 changeDIYList();
                                 animationController.reverse();
                                 setState(() {
-                                  print("Reverse");
                                   isFade = false;
                                 });
                               },
@@ -377,7 +366,6 @@ class _DIYListState extends State<DIYList>
                               changeDIYList();
                               animationController.reverse();
                               setState(() {
-                                print("Reverse");
                                 isFade = false;
                               });
                             },
@@ -415,7 +403,6 @@ class _DIYListState extends State<DIYList>
                               changeDIYList();
                               animationController.reverse();
                               setState(() {
-                                print("Reverse");
                                 isFade = false;
                               });
                             },
@@ -457,7 +444,6 @@ class _DIYListState extends State<DIYList>
                           if (animationController.isCompleted) {
                             animationController.reverse();
                             setState(() {
-                              print("Reverse");
                               isFade = false;
                             });
                           } else {
