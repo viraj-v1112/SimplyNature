@@ -2,8 +2,8 @@ import 'package:SimplyNatureUI/bloc.navigation_bloc/navigation_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:lottie/lottie.dart';
-// import 'package:oculus/screens/EventDetailPage.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:SimplyNatureUI/widgets/diy_detail_card.dart';
 import 'dart:math';
 
 class DIYCard extends StatefulWidget with NavigationStates {
@@ -11,6 +11,7 @@ class DIYCard extends StatefulWidget with NavigationStates {
   final String description;
   final String title;
   final String type;
+  final String imageURL;
   final int num;
   // final List<Color> gradient;
   // final bool liked;
@@ -20,6 +21,7 @@ class DIYCard extends StatefulWidget with NavigationStates {
       {this.description,
       this.title,
       this.type,
+      this.imageURL,
       this.num,
       // this.gradient,
       this.d,
@@ -41,8 +43,6 @@ Color colorFromNum(int num) {
 
 class _DIYCardState extends State<DIYCard> with TickerProviderStateMixin {
   var user = FirebaseAuth.instance.currentUser;
-  bool liked = false;
-  bool alreadyliked = false;
   AnimationController _controller;
 
   @override
@@ -60,7 +60,6 @@ class _DIYCardState extends State<DIYCard> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    // getLikedData();
     print(widget.d['type']);
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
@@ -97,8 +96,10 @@ class _DIYCardState extends State<DIYCard> with TickerProviderStateMixin {
                         borderRadius: BorderRadius.all(
                           Radius.circular(20),
                         ),
-                        // child:
-                        //     Image.network(widget.imageUrl, fit: BoxFit.cover),
+                        child:
+                            Image.network(widget.imageURL, fit: BoxFit.cover),
+                        // Image.network(widget.d['imageURL'],
+                        //     fit: BoxFit.cover),
                       ),
                     ),
                   ),
@@ -201,15 +202,13 @@ class _DIYCardState extends State<DIYCard> with TickerProviderStateMixin {
                       child: InkWell(
                         borderRadius: BorderRadius.all(Radius.circular(20)),
                         onTap: () async {
-                          await Future.delayed(Duration(milliseconds: 200));
+                          await Future.delayed(Duration(milliseconds: 100));
                           Navigator.push(
                             context,
                             SlowMaterialPageRoute(
                               builder: (context) {
                                 return new PageItem(
-                                    event: widget.d,
-                                    date: widget.date,
-                                    num: widget.num);
+                                    diy: widget.d, num: widget.num);
                               },
                               fullscreenDialog: true,
                             ),
@@ -230,25 +229,6 @@ class _DIYCardState extends State<DIYCard> with TickerProviderStateMixin {
   }
 }
 
-class PageItem extends StatelessWidget {
-  final int num;
-
-  const PageItem({Key key, this.num}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Hero(
-      tag: "card$num",
-      child: Scaffold(
-        backgroundColor: colorFromNum(num),
-        appBar: AppBar(
-          backgroundColor: Colors.white.withOpacity(0.2),
-        ),
-      ),
-    );
-  }
-}
-
 class SlowMaterialPageRoute<T> extends MaterialPageRoute<T> {
   SlowMaterialPageRoute({
     WidgetBuilder builder,
@@ -261,5 +241,5 @@ class SlowMaterialPageRoute<T> extends MaterialPageRoute<T> {
             fullscreenDialog: fullscreenDialog);
 
   @override
-  Duration get transitionDuration => const Duration(seconds: 3);
+  Duration get transitionDuration => const Duration(seconds: 1);
 }

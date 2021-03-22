@@ -15,6 +15,14 @@ class _ClassificationPageState extends State<ClassificationPage> {
   File _pickedImage;
   String result;
 
+  List<String> classes = [
+    'Cardboard',
+    'Glass',
+    'Metal',
+    'Paper',
+    'Plastic',
+    'Trash'
+  ];
   void _selectImage(File pickedImage) {
     _pickedImage = pickedImage;
   }
@@ -23,7 +31,7 @@ class _ClassificationPageState extends State<ClassificationPage> {
     ///MultiPart request
     var request = http.MultipartRequest(
       'POST',
-      Uri.parse("http://192.168.0.109:5000/predict"),
+      Uri.parse("http://192.168.0.101:5000/predict"),
     );
     Map<String, String> headers = {"Content-type": "multipart/form-data"};
     request.files.add(
@@ -39,8 +47,6 @@ class _ClassificationPageState extends State<ClassificationPage> {
 
     print("request: " + request.toString());
     var res = await request.send();
-    // print("This is response:" + res.toString());
-    // print(await res.stream.transform(utf8.decoder).join());
     result = await res.stream.transform(utf8.decoder).join();
     setState(() {});
     return res.statusCode;
@@ -76,7 +82,7 @@ class _ClassificationPageState extends State<ClassificationPage> {
           ),
           if (result != null)
             Text(
-              'The obtained class is: $result',
+              'The obtained class is: ${classes[int.parse(result[1])]}',
               style: TextStyle(
                 color: Colors.pinkAccent,
                 fontSize: 17,

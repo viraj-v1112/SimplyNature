@@ -27,7 +27,6 @@ dependencies:
   firebase_auth: ^0.16.1
   firebase_storage: ^3.1.6
   firebase_core: ^0.4.0
-
   url_launcher: ^5.5.0
   google_maps_flutter: ^0.5.17
   intl: ^0.16.1
@@ -42,6 +41,7 @@ dependencies:
   shared_preferences: ^0.5.12+4
   vibration: ^1.7.3
   google_fonts: ^1.1.2
+  animator:
 
 dev_dependencies:
   flutter_test:

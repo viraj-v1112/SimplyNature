@@ -128,7 +128,7 @@ class _DIYListState extends State<DIYList>
       },
       child: Scaffold(
         appBar: AppBar(
-            toolbarHeight: 70,
+            toolbarHeight: 100,
             backgroundColor: Colors.transparent,
             leadingWidth: 100,
             title: Row(
@@ -176,6 +176,7 @@ class _DIYListState extends State<DIYList>
                             description: diys[index]['description'],
                             title: diys[index]['title'],
                             type: diys[index]['type'],
+                            imageURL: diys[index]['imageURL'],
                             num: index,
                             d: diys[index],
                           );
@@ -381,8 +382,8 @@ class _DIYListState extends State<DIYList>
                 ),
 
                 Transform.translate(
-                  offset: Offset.fromDirection(getRadiansFromDegree(136),
-                      degOneTranslationAnimation.value * size.height / 5.5),
+                  offset: Offset.fromDirection(getRadiansFromDegree(103),
+                      degOneTranslationAnimation.value * size.height / 1.65),
                   child: Transform(
                     transform: Matrix4.rotationZ(
                         getRadiansFromDegree(rotationAnimation.value))
@@ -449,7 +450,6 @@ class _DIYListState extends State<DIYList>
                           } else {
                             animationController.forward();
                             setState(() {
-                              print("Forward");
                               isFade = true;
                             });
                           }
