@@ -1,7 +1,12 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:animator/animator.dart';
 
 class TimeLine extends StatefulWidget {
+  final List<DocumentSnapshot> steps;
+
+  TimeLine({this.steps}) : super();
+
   @override
   _TimeLineState createState() => _TimeLineState();
 }
@@ -37,7 +42,7 @@ class _TimeLineState extends State<TimeLine> {
   }
 
   Widget timeLineStepsCard(
-      int number, String description, BuildContext context) {
+      int number, DocumentSnapshot step, BuildContext context) {
     return ClipPath(
       clipper: LineClipper(),
       child: Container(
@@ -71,22 +76,18 @@ class _TimeLineState extends State<TimeLine> {
                   height: 10,
                 ),
                 Text(
-                  "Step " + number.toString(),
+                  "Step " + step['number'].toString(),
                   style: TextStyle(color: Colors.white),
                 ),
                 SizedBox(
                   height: 15,
                 ),
                 Text(
-                  description,
+                  step['step'],
                   style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontStyle: FontStyle.italic,
-                      fontSize: 18),
-                ),
-                SizedBox(
-                  height: 10,
+                    color: Colors.white,
+                  ),
+                  overflow: TextOverflow.clip,
                 ),
               ],
             )
@@ -121,9 +122,9 @@ class _TimeLineState extends State<TimeLine> {
                         child: ListView.builder(
                           primary: false,
                           shrinkWrap: true,
-                          itemCount: 5,
+                          itemCount: widget.steps.length,
                           itemBuilder: (context, index) {
-                            if (index != 5) {
+                            if (index != widget.steps.length) {
                               return Row(
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
@@ -141,7 +142,7 @@ class _TimeLineState extends State<TimeLine> {
                                   Container(
                                     width: width * 0.8 - 10,
                                     child: timeLineStepsCard(
-                                        index, 'ajgvoduvsdjbpizdbc', context),
+                                        index, widget.steps[index], context),
                                   )
                                 ],
                               );

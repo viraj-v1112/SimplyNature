@@ -19,8 +19,27 @@ class _PageItemState extends State<PageItem>
   AnimationController _controller;
   bool loading = false;
 
+  List<DocumentSnapshot> steps = [];
+
+  stepDetails() async {
+    Firestore firestore = Firestore.instance;
+    QuerySnapshot stepSnap = await firestore
+        .collection('diy')
+        .document(widget.diy.documentID)
+        .collection('steps')
+        .getDocuments();
+    for (DocumentSnapshot d in stepSnap.documents) {
+      setState(() {
+        steps.add(d);
+        steps.sort((a, b) => a['number'].compareTo(b['number']));
+      });
+    }
+    setState(() {});
+  }
+
   @override
   void initState() {
+    stepDetails();
     _controller = AnimationController(
       vsync: this,
       duration: Duration(
@@ -198,7 +217,7 @@ class _PageItemState extends State<PageItem>
                               Container(
                                   padding: EdgeInsets.fromLTRB(15, 0, 30, 0),
                                   width: screenWidth,
-                                  child: TimeLine()),
+                                  child: TimeLine(steps: steps)),
                             ],
                           ),
                         ),

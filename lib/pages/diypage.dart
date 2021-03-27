@@ -40,6 +40,7 @@ class _DIYListState extends State<DIYList>
   var firestore = Firestore.instance;
   bool loading = false;
   List<DocumentSnapshot> allDiys = [];
+  List<DocumentSnapshot> allSteps = [];
 
   _DIYListState({this.type});
 
@@ -56,9 +57,6 @@ class _DIYListState extends State<DIYList>
         }
         allDiys.add(d);
       });
-      print(diys);
-      print(allDiys);
-      print(d['title']);
     }
     setState(() {
       loading = false;

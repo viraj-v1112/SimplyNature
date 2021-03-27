@@ -23,9 +23,7 @@ class DIYCard extends StatefulWidget with NavigationStates {
       this.type,
       this.imageURL,
       this.num,
-      // this.gradient,
       this.d,
-      // this.liked,
       this.key})
       : super(key: key);
 
@@ -48,6 +46,7 @@ class _DIYCardState extends State<DIYCard> with TickerProviderStateMixin {
   @override
   void initState() {
     // TODO: implement initState
+
     _controller = AnimationController(vsync: this);
     super.initState();
   }
@@ -98,8 +97,6 @@ class _DIYCardState extends State<DIYCard> with TickerProviderStateMixin {
                         ),
                         child:
                             Image.network(widget.imageURL, fit: BoxFit.cover),
-                        // Image.network(widget.d['imageURL'],
-                        //     fit: BoxFit.cover),
                       ),
                     ),
                   ),
