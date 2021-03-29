@@ -215,7 +215,7 @@ class _PageItemState extends State<PageItem>
                                 color: Colors.grey,
                               ),
                               Container(
-                                  padding: EdgeInsets.fromLTRB(15, 0, 30, 0),
+                                  padding: EdgeInsets.fromLTRB(15, 0, 30, 20),
                                   width: screenWidth,
                                   child: TimeLine(steps: steps)),
                             ],

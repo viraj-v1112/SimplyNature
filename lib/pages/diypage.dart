@@ -201,8 +201,8 @@ class _DIYListState extends State<DIYList>
                   ),
                 ),
                 Transform.translate(
-                  offset: Offset.fromDirection(getRadiansFromDegree(93),
-                      degThreeTranslationAnimation.value * size.height / 2.28),
+                  offset: Offset.fromDirection(getRadiansFromDegree(92),
+                      degThreeTranslationAnimation.value * size.height / 2.2),
                   child: Transform(
                     transform: Matrix4.rotationZ(
                         getRadiansFromDegree(rotationAnimation.value))
@@ -211,8 +211,8 @@ class _DIYListState extends State<DIYList>
                     child: Column(
                       children: [
                         Container(
-                            width: 170,
-                            height: 130,
+                            width: 165,
+                            height: 100,
                             child: InkWell(
                               onTap: () {
                                 print("glass");
@@ -226,7 +226,7 @@ class _DIYListState extends State<DIYList>
                                 });
                               },
                               child: Image.asset(
-                                'assets/images/Event Images_1-03.png',
+                                'assets/images/glass.png',
                                 fit: BoxFit.cover,
                               ),
                             )),
@@ -237,7 +237,7 @@ class _DIYListState extends State<DIYList>
 
                 //Right to the top upper
                 Transform.translate(
-                  offset: Offset.fromDirection(getRadiansFromDegree(89),
+                  offset: Offset.fromDirection(getRadiansFromDegree(90),
                       degTwoTranslationAnimation.value * size.height / 3.53),
                   child: Transform(
                     transform: Matrix4.rotationZ(
@@ -247,8 +247,8 @@ class _DIYListState extends State<DIYList>
                     child: Column(
                       children: [
                         Container(
-                            width: 170,
-                            height: 130,
+                            width: 180,
+                            height: 90,
                             // color: Colors.white,
                             child: InkWell(
                               onTap: () {
@@ -263,7 +263,7 @@ class _DIYListState extends State<DIYList>
                                 });
                               },
                               child: Image.asset(
-                                'assets/images/Event Images_1-02.png',
+                                'assets/images/paper.png',
                                 fit: BoxFit.cover,
                               ),
                             )),
@@ -273,8 +273,8 @@ class _DIYListState extends State<DIYList>
                 ),
 
                 Transform.translate(
-                  offset: Offset.fromDirection(getRadiansFromDegree(119),
-                      degTwoTranslationAnimation.value * size.height / 2.03),
+                  offset: Offset.fromDirection(getRadiansFromDegree(121),
+                      degTwoTranslationAnimation.value * size.height / 2.1),
                   child: Transform(
                     transform: Matrix4.rotationZ(
                         getRadiansFromDegree(rotationAnimation.value))
@@ -283,8 +283,8 @@ class _DIYListState extends State<DIYList>
                     child: Column(
                       children: [
                         Container(
-                            width: 170,
-                            height: 130,
+                            width: 150,
+                            height: 145,
                             child: InkWell(
                               onTap: () {
                                 print("cardboard");
@@ -298,7 +298,7 @@ class _DIYListState extends State<DIYList>
                                 });
                               },
                               child: Image.asset(
-                                'assets/images/Event Images_1-05.png',
+                                'assets/images/cardboard.png',
                                 fit: BoxFit.cover,
                               ),
                             )),
@@ -318,8 +318,8 @@ class _DIYListState extends State<DIYList>
                     child: Column(
                       children: [
                         Container(
-                            width: 170,
-                            height: 130,
+                            width: 150,
+                            height: 100,
                             child: InkWell(
                               onTap: () {
                                 print("metal");
@@ -333,7 +333,7 @@ class _DIYListState extends State<DIYList>
                                 });
                               },
                               child: Image.asset(
-                                'assets/images/Event Images_1-04.png',
+                                'assets/images/metal.png',
                                 fit: BoxFit.cover,
                               ),
                             )),
@@ -343,8 +343,8 @@ class _DIYListState extends State<DIYList>
                 ),
 
                 Transform.translate(
-                  offset: Offset.fromDirection(getRadiansFromDegree(136),
-                      degOneTranslationAnimation.value * size.height / 5.5),
+                  offset: Offset.fromDirection(getRadiansFromDegree(140),
+                      degOneTranslationAnimation.value * size.height / 5.2),
                   child: Transform(
                     transform: Matrix4.rotationZ(
                         getRadiansFromDegree(rotationAnimation.value))
@@ -353,8 +353,8 @@ class _DIYListState extends State<DIYList>
                     child: Column(
                       children: [
                         Container(
-                          width: 170,
-                          height: 130,
+                          width: 120,
+                          height: 110,
                           // color: Colors.white,
                           child: InkWell(
                             onTap: () {
@@ -369,7 +369,7 @@ class _DIYListState extends State<DIYList>
                               });
                             },
                             child: Image.asset(
-                              'assets/images/Event Images_1-01.png',
+                              'assets/images/trash.png',
                               fit: BoxFit.cover,
                             ),
                           ),
@@ -380,8 +380,8 @@ class _DIYListState extends State<DIYList>
                 ),
 
                 Transform.translate(
-                  offset: Offset.fromDirection(getRadiansFromDegree(103),
-                      degOneTranslationAnimation.value * size.height / 1.65),
+                  offset: Offset.fromDirection(getRadiansFromDegree(105),
+                      degOneTranslationAnimation.value * size.height / 1.6),
                   child: Transform(
                     transform: Matrix4.rotationZ(
                         getRadiansFromDegree(rotationAnimation.value))
@@ -390,8 +390,8 @@ class _DIYListState extends State<DIYList>
                     child: Column(
                       children: [
                         Container(
-                          width: 170,
-                          height: 130,
+                          width: 105,
+                          height: 120,
                           // color: Colors.white,
                           child: InkWell(
                             onTap: () {
@@ -406,7 +406,7 @@ class _DIYListState extends State<DIYList>
                               });
                             },
                             child: Image.asset(
-                              'assets/images/Event Images_1-01.png',
+                              'assets/images/plastic.png',
                               fit: BoxFit.cover,
                             ),
                           ),

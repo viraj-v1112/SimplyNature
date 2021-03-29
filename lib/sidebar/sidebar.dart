@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:SimplyNatureUI/bloc.navigation_bloc/navigation_bloc.dart';
 import 'package:SimplyNatureUI/helpers/menu_item.dart';
 import 'package:flutter/material.dart';
@@ -147,14 +146,6 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin {
                         color: Color.fromRGBO(188, 111, 241, 1),
                         indent: 32,
                         endIndent: 32,
-                      ),
-                      MenuItem(
-                        icon: Icons.settings,
-                        title: "Settings",
-                      ),
-                      MenuItem(
-                        icon: Icons.exit_to_app,
-                        title: "Logout",
                       ),
                     ],
                   ),

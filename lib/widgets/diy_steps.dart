@@ -54,7 +54,7 @@ class _TimeLineState extends State<TimeLine> {
             border: Border.all(
               color: Colors.deepPurple,
             )),
-        height: 100,
+        height: 140,
         child: Row(
           children: [
             ClipPath(
@@ -80,14 +80,17 @@ class _TimeLineState extends State<TimeLine> {
                   style: TextStyle(color: Colors.white),
                 ),
                 SizedBox(
-                  height: 15,
+                  height: 5,
                 ),
-                Text(
-                  step['step'],
-                  style: TextStyle(
-                    color: Colors.white,
+                Container(
+                  width: 220,
+                  child: Text(
+                    step['step'],
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
+                    overflow: TextOverflow.clip,
                   ),
-                  overflow: TextOverflow.clip,
                 ),
               ],
             )
@@ -106,62 +109,59 @@ class _TimeLineState extends State<TimeLine> {
       color: Colors.transparent,
       child: Container(
         width: width,
-        height: height,
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Container(
-                // height: height * 0.9,
-                child: Padding(
-                  padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
-                  child: Scrollbar(
-                    child: Container(
-                        // height: height * 0.3,
-                        width: width - 20,
-                        child: ListView.builder(
-                          primary: false,
-                          shrinkWrap: true,
-                          itemCount: widget.steps.length,
-                          itemBuilder: (context, index) {
-                            if (index != widget.steps.length) {
-                              return Row(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: [
-                                  Container(
-                                      width: width * 0.2 - 10,
-                                      child: Column(
-                                        children: [
-                                          rippleCircle(Colors.blue),
-                                          Container(
-                                              height: 100,
-                                              width: 3,
-                                              color: Color(0xff8f8f8f)),
-                                        ],
-                                      )),
-                                  Container(
-                                    width: width * 0.8 - 10,
-                                    child: timeLineStepsCard(
-                                        index, widget.steps[index], context),
-                                  )
-                                ],
-                              );
-                            } else {
-                              return Container(
-                                  padding: EdgeInsets.only(left: 19),
-                                  alignment: Alignment.centerLeft,
-                                  child: Icon(
-                                    Icons.cancel,
-                                    color: Colors.blue,
-                                  ));
-                            }
-                          },
-                        )),
-                  ),
-                ),
-              )
-            ],
-          ),
+        // height: height,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              // height: height * 0.9,
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
+                child: Container(
+                    // height: height * 0.3,
+                    width: width - 20,
+                    child: ListView.builder(
+                      primary: false,
+                      shrinkWrap: true,
+                      physics: NeverScrollableScrollPhysics(),
+                      itemCount: widget.steps.length,
+                      itemBuilder: (context, index) {
+                        if (index != widget.steps.length) {
+                          return Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Container(
+                                  width: width * 0.2 - 20,
+                                  child: Column(
+                                    children: [
+                                      rippleCircle(Colors.blue),
+                                      Container(
+                                          height: 140,
+                                          width: 3,
+                                          color: Color(0xff8f8f8f)),
+                                    ],
+                                  )),
+                              Container(
+                                width: width * 0.8,
+                                child: timeLineStepsCard(
+                                    index, widget.steps[index], context),
+                              )
+                            ],
+                          );
+                        } else {
+                          return Container(
+                              padding: EdgeInsets.only(left: 19),
+                              alignment: Alignment.centerLeft,
+                              child: Icon(
+                                Icons.cancel,
+                                color: Colors.blue,
+                              ));
+                        }
+                      },
+                    )),
+              ),
+            )
+          ],
         ),
       ),
     );
