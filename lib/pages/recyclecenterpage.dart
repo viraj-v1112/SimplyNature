@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:SimplyNatureUI/bloc.navigation_bloc/navigation_bloc.dart';
+import 'package:geolocator/geolocator.dart';
 
 class RecycleCenterPage extends StatefulWidget with NavigationStates {
   // static const routeName = '/map-screen';
@@ -14,6 +15,8 @@ class RecycleCenterPage extends StatefulWidget with NavigationStates {
 
 class _RecycleCenterPageState extends State<RecycleCenterPage> {
   Set<Marker> markers = {};
+  Position _currentPosition = Position();
+  final Geolocator geolocator = Geolocator()..forceAndroidLocationManager;
 
   void initState() {
     super.initState();
@@ -22,12 +25,28 @@ class _RecycleCenterPageState extends State<RecycleCenterPage> {
     //       () => setState(() {})
     //    );
     // }
+    _getCurrentLocation();
     getCenters();
+  }
+
+  _getCurrentLocation() {
+    geolocator
+        .getCurrentPosition(desiredAccuracy: LocationAccuracy.best)
+        .then((Position position) {
+      setState(() {
+        _currentPosition = position;
+      });
+    }).catchError((e) {
+      print(e);
+    });
   }
 
   Future<void> getCenters() async {
     Firestore firestore = Firestore.instance;
     QuerySnapshot q = await firestore.collection('centers').getDocuments();
+
+    print("**********");
+    print(_currentPosition);
 
     for (DocumentSnapshot d in q.documents) {
       // setState(() {
@@ -49,40 +68,37 @@ class _RecycleCenterPageState extends State<RecycleCenterPage> {
                 context: context,
                 builder: (builder) {
                   return Container(
-                    height: 150,
-                    width: double.infinity,
-                    child: Row(
+                    padding: EdgeInsets.all(10),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(15),
+                      color: Colors.lime[100],
+                    ),
+                    height: 175,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Image.network(
-                          'https://firebasestorage.googleapis.com/v0/b/simplynature-e1066.appspot.com/o/Glass%2Fclamp-12.jpg?alt=media&token=bc72ec59-0ef1-4946-8099-169e2fb2cb86',
-                          height: 100,
-                          width: 150,
+                        SizedBox(
+                          height: 10,
                         ),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Container(
-                              margin: EdgeInsets.only(top: 20),
-                              child: Text(
-                                'This is some name',
-                                style: TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
+                        Container(
+                          child: Text(
+                            d['name'],
+                            style: TextStyle(
+                              fontSize: 24,
+                              fontWeight: FontWeight.bold,
                             ),
-                            FittedBox(
-                              fit: BoxFit.cover,
-                              child: Text(
-                                'This is the address. This has to be lomg and multiline.',
-                                style: TextStyle(
-                                  fontSize: 12,
-                                ),
-                                overflow: TextOverflow.ellipsis,
-                              ),
-                            ),
-                          ],
-                        )
+                          ),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Text(
+                          d['address'],
+                          style: TextStyle(
+                            fontSize: 18,
+                          ),
+                        ),
                       ],
                     ),
                   );
@@ -107,8 +123,8 @@ class _RecycleCenterPageState extends State<RecycleCenterPage> {
       body: GoogleMap(
         initialCameraPosition: CameraPosition(
           target: LatLng(
-            19.120128,
-            72.8858624,
+            22.4690,
+            73.0750,
           ),
           zoom: 16,
         ),
