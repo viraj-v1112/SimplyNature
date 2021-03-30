@@ -6,7 +6,7 @@ import 'package:SimplyNatureUI/pages/recyclecenterpage.dart';
 import 'package:bloc/bloc.dart';
 
 enum NavigationEvents {
-  HomePageClickedEvent,
+  // HomePageClickedEvent,
   ClassifyPageClickedEvent,
   DIYPageClickedEvent,
   RecyclePageClickedEvent,
@@ -23,9 +23,9 @@ class NavigationBloc extends Bloc<NavigationEvents, NavigationStates> {
   @override
   Stream<NavigationStates> mapEventToState(NavigationEvents event) async* {
     switch (event) {
-      case NavigationEvents.HomePageClickedEvent:
-        yield HomePage();
-        break;
+      //   case NavigationEvents.HomePageClickedEvent:
+      //     yield HomePage();
+      //     break;
       case NavigationEvents.DIYPageClickedEvent:
         yield DIYList(type: 'paper');
         break;

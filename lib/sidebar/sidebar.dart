@@ -95,15 +95,15 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin {
                         indent: 32,
                         endIndent: 32,
                       ),
-                      MenuItem(
-                        icon: Icons.home,
-                        title: "Home",
-                        onTap: () {
-                          onIconPressed();
-                          BlocProvider.of<NavigationBloc>(context)
-                              .add(NavigationEvents.HomePageClickedEvent);
-                        },
-                      ),
+                      // MenuItem(
+                      //   icon: Icons.home,
+                      //   title: "Home",
+                      //   onTap: () {
+                      //     onIconPressed();
+                      //     BlocProvider.of<NavigationBloc>(context)
+                      //         .add(NavigationEvents.HomePageClickedEvent);
+                      //   },
+                      // ),
                       MenuItem(
                         icon: Icons.image,
                         title: "Classify",
